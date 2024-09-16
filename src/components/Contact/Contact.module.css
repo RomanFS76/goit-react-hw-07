@@ -1,0 +1,25 @@
+.btnDelete {
+    font-size: 15px;
+    background-color: #efefef;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    border: 1px solid #767676;
+}
+
+.contactText {
+    font-size: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+
+
+
+.wrapperContact {
+    position: relative;
+
+}

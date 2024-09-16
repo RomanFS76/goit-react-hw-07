@@ -1,0 +1,38 @@
+.labelForm {
+    font-size: 20px;
+    display: block;
+}
+
+.fieldForm {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form{
+    display: inline-block;
+    margin-bottom: 40px;
+    border: 1px solid #767676;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.inputName {
+    margin-bottom: 15px;
+}
+
+.btnSubmit {
+    display: block;
+    width: 200px;
+    font-size: 15px;
+    padding: 10px 15px;
+    background-color: #efefef;
+    border-radius: 5px;
+    font-weight: 500;
+    border: 1px solid #767676;
+    margin-top: 20px;
+}
+
+span {
+    color: red;
+    display: block;;
+}

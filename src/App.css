@@ -1,0 +1,42 @@
+:root{
+  padding: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+button {
+  border: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
