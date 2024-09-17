@@ -1,4 +1,4 @@
-import { Formik, Field, Form,ErrorMessage  } from "formik";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import React from "react";
 import { useId } from "react";
 import { useDispatch } from "react-redux";
@@ -8,8 +8,14 @@ import { addContacts } from "../../redux/contactsOps";
 
 const initialValues = { name: "", number: "" };
 const FeedbackSchema = Yup.object().shape({
-  name: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
-  number: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
+  name: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  number: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
 });
 
 const ContactForm = () => {
@@ -17,29 +23,39 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, action) => {
-    console.log(values)
-    // dispatch(
-    //   addContacts({
-    //     values
-    //   })
-    // );
+    console.log(values);
+    dispatch(addContacts(values));
     action.resetForm();
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={FeedbackSchema}
+    >
       <Form className={css.form}>
-        <label className={css.labelForm} htmlFor={`${id}-name`}>Name</label>
-        <Field className={css.inputName} type="text" name="name" id={`${id}-name`} />
+        <label className={css.labelForm} htmlFor={`${id}-name`}>
+          Name
+        </label>
+        <Field
+          className={css.inputName}
+          type="text"
+          name="name"
+          id={`${id}-name`}
+        />
         <ErrorMessage name="name" component="span" />
-        <label className={css.labelForm} htmlFor={`${id}-phone`}>Phone</label>
+        <label className={css.labelForm} htmlFor={`${id}-phone`}>
+          Phone
+        </label>
         <Field type="text" name="phone" id={`${id}-phone`} />
         <ErrorMessage name="phone" component="span" />
-        <button className={css.btnSubmit} type="submit">Add contact</button>
+        <button className={css.btnSubmit} type="submit">
+          Add contact
+        </button>
       </Form>
     </Formik>
   );
 };
 
 export default ContactForm;
-
