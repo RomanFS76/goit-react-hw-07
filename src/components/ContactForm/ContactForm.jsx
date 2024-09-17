@@ -45,11 +45,11 @@ const ContactForm = () => {
           id={`${id}-name`}
         />
         <ErrorMessage name="name" component="span" />
-        <label className={css.labelForm} htmlFor={`${id}-phone`}>
-          Phone
+        <label className={css.labelForm} htmlFor={`${id}-number`}>
+          Number
         </label>
-        <Field type="text" name="phone" id={`${id}-phone`} />
-        <ErrorMessage name="phone" component="span" />
+        <Field type="number" name="number" id={`${id}-number`} />
+        <ErrorMessage name="number" component="span" />
         <button className={css.btnSubmit} type="submit">
           Add contact
         </button>
