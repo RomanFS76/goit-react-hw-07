@@ -1,6 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addContacts, fetchContacts } from "./contactsOps";
+import { addContacts, deleteContacts, fetchContacts } from "./contactsOps";
 
+const handlePending = (state) => {
+  state.loading = true;
+};
+
+const handleRejected = (state, action) => {
+  (state.loading = false), (state.error = action.payload);
+};
 
 const slice = createSlice({
   name: "contacts",
@@ -11,33 +18,31 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchContacts.pending, (state, action) => {
-        state.loading = true
-      })
+      .addCase(fetchContacts.pending, handlePending)
       .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.loading = false,
-        state.error = null,
-        state.items = action.payload
+        (state.loading = false),
+          (state.error = null),
+          (state.items = action.payload);
       })
-      .addCase(fetchContacts.rejected, (state, action) => {
-        state.loading = false,
-        state.error = action.payload
-      })
+      .addCase(fetchContacts.rejected, handleRejected)
 
-
-      .addCase(addContacts.pending, (state, action) => {
-        state.loading = true
-        
-      })
+      .addCase(addContacts.pending, handlePending)
       .addCase(addContacts.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.items.push(action.payload);
       })
-      .addCase(addContacts.rejected, (state, action) => {
-        state.loading = false,
-        state.error = action.payload
+      .addCase(addContacts.rejected, handleRejected)
+
+      .addCase(deleteContacts.pending, handlePending)
+      .addCase(deleteContacts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.items = state.items.filter(
+          (item) => item.id !== action.payload.id
+        );
       })
+      .addCase(deleteContacts.rejected,handleRejected);
   },
 });
 
