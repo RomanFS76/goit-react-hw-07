@@ -1,13 +1,11 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-export const selectLoading = (state) => {
-  state.contacts.loading;
-};
+export const selectLoading = (state) => state.contacts.loading;
+console.dir(selectLoading);
 
-console.dir(selectLoading)
-export const selectError = (state) => {
-  state.contacts.error;
-};
+
+export const selectError = (state) => state.contacts.error;
+
 
 export const selectContacts = (state) => state.contacts.items;
 

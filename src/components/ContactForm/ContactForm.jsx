@@ -23,8 +23,6 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, action) => {
-    console.log(values);
-    console.log(typeof values.number);
     dispatch(addContacts(values));
     action.resetForm();
   };
