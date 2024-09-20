@@ -1,7 +1,9 @@
 import { createSelector } from "@reduxjs/toolkit";
 
 export const selectLoading = (state) => state.contacts.loading;
-console.dir(selectLoading);
+
+
+// export const getInitialState = (state) => state.contacts;
 
 
 export const selectError = (state) => state.contacts.error;
