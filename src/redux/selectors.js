@@ -1,14 +1,10 @@
 import { createSelector } from "@reduxjs/toolkit";
 
+export const getInitialState = (state) => state.contacts;
+console.log(getInitialState);
+
 export const selectLoading = (state) => state.contacts.loading;
-
-
-// export const getInitialState = (state) => state.contacts;
-
-
 export const selectError = (state) => state.contacts.error;
-
-
 export const selectContacts = (state) => state.contacts.items;
 
 export const selectNameFilter = (state) => state.filters.name;
@@ -21,5 +17,3 @@ export const selectVisibleContacts = createSelector(
     );
   }
 );
-
-
