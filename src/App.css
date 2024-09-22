@@ -1,5 +1,6 @@
 :root{
   padding: 20px;
+  position: relative;
 }
 
 h1,
@@ -41,6 +42,15 @@ a {
   text-decoration: none;
 }
 
-.loading {
-  font-size: 100px;
+.loading-text {
+  font-size: 50px;  
+  text-align: center;
+  position: absolute;
+  top: 45%;
+  left: 40%;
+}
+
+.error-text {
+  font-size: 50px;  
+  text-align: center;
 }

@@ -5,13 +5,12 @@ import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "./redux/contactsOps";
-// import { selectInitialState } from "./redux/selectors";
-import { selectError, selectLoading } from "./redux/selectors";
+import { selectError, selectLoading } from "./redux/contactsSlice";
+
+
 
 function App() {
   const dispatch = useDispatch();
-  // const { loading, error } = useSelector(selectInitialState);
-
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
@@ -24,8 +23,8 @@ function App() {
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      {loading && <p>Loading...</p>}
-      <p>{error}</p>
+      {loading && <p className="loading-text">Loading...</p>}
+      {error && <p className="error-text">{error}, try again later</p>}
       <ContactList />
     </>
   );
